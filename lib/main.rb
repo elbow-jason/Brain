@@ -1,13 +1,22 @@
 
 require_relative 'brain/brain'
-require_relative 'neuron/neural_net'
+require_relative 'neuron/neuron'
 
 
-neuron = Neural_net.new(10,10,10, 6)
-neuron.connect
-neuron.establish
+#neuron = Neuron.new(10,10,10, 6)
+#neuron.grow_dendrite
 
-brain = Brain.new(1000000)
+
+
+brain = Brain.new(3, 3, 3)
+
+
+brain.generate_addresses
+
+brain.generate_neurons
+
+
+
 
 #neuron_alpha_v_simple_grackle
 
