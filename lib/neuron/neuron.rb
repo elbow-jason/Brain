@@ -3,17 +3,14 @@ class Neuron
 	
 	
 	def initialize(x,y,z) 
-
 		@@number_of_neurons += 1
-		@neuron = {}
-		@dendrites = {}
+		
+		@dendrites          = {}
+		location  = [x,y,z] 
+		accession = "neuron_" + location.join("_").to_s
+		delay     = rand(7)
 
-		location = [x,y,z] 
-		address = "neuron_" + location.join("_").to_s
-		delay = rand(7)
-
-
-		#add attributes to neuron_dict
+    @neuron             = {}
 		@neuron[:location] = location
 		@neuron[:address] = address
 		@neuron[:delay] = delay
@@ -25,7 +22,6 @@ class Neuron
 			@dendrites[counter] = grow_dendrite()
 			print @dendrites[counter], " "
 		end
-
 		print "\n"
 	end
 
@@ -37,13 +33,13 @@ class Neuron
 		return @@number_of_neurons
 	end
 
+  def sqrt_to_200()
+
 
 	def grow_dendrite # generate an address of a random coordinate within 10 units on each axis 
 					  # and return array of [x, y, z, distance]
-		
-		dendrite = []
-		#random x,y,z that is +/-10 from neuron 
-		@neuron[:location].each {|pt| [true,false].sample ? dendrite << pt+rand(10) : dendrite << pt-rand(10)} 
+		dendrite = [] 
+		@neuron[:location].each {|point| [true,false].sample ? dendrite << point+rand(10) : dendrite << point-rand(10)} 
 		#calc sqaures of distance between neuron [x,y,z] and dendrite [j,k,i] points 
 		#zipped array becomes [ [x,j], [y,k], [z,i] ] format
 		dendrite << @neuron[:location].zip(dendrite).map { |x, j| (j - x) ** 2 } 

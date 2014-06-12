@@ -1,5 +1,5 @@
 class Brain
-	def initialize(x_limit,y_limit,z_limit, in_size = 10, out_size = 10)
+	def initialize(x_limit=100, y_limit=100, z_limit=100, in_size=10, out_size=10)
 		
 		#establish instance variables
 		@address_array = []
@@ -10,23 +10,14 @@ class Brain
 		@y_limit = y_limit
 		@z_limit = z_limit
 
-
-		#establish class vars
-		 
-
-
 		#calc 3D dimensional limit for brain
 		print "x_limit: ", x_limit, " | y_limit : ", y_limit, " | z_limit: ", z_limit, "\n"
-
-		total_neurons = number_of_neurons(x_limit,y_limit,z_limit)
-
+    total_neurons = number_of_neurons(x_limit,y_limit,z_limit)
 		print "Total neurons : ", total_neurons, "\n"
-
-
 	end
 
 	def number_of_neurons(x,y,z)
-		return x * y * z
+		return x*y*z
 	end
 
 	
@@ -51,13 +42,7 @@ class Brain
 	end
 
 
-	
-
-
 	def make_neurons
-	end	
-	
-	
-
+	end
 end
 
